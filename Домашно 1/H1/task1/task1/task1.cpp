@@ -19,7 +19,7 @@ using std::min;
 // 0			|	2
 
 void coordinates(int &x1, int &y1, int &height1, int &width1, int &x2, int &y2, int &height2, int &width2) {
-	cout << "Enter the x coordinate of the first rectangle: ";
+    cout << "Enter the x coordinate of the first rectangle: ";
     cin >> x1;
     cout << "Enter the y coordinate of the first rectangle: ";
     cin >> y1;
