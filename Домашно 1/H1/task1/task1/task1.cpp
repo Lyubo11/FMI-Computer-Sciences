@@ -47,4 +47,6 @@ int main() {
     int left = max(x1, x2);
 
     calculateAndPrintCommonPartArea(top, bottom, right, left);
+
+    return 0;
 }
