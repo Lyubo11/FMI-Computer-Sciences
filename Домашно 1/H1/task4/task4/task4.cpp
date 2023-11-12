@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cmath>
 
 using namespace std;
@@ -20,16 +20,32 @@ void checkGuess(int secretNumber, int guess, int& bulls, int& cows) {
     bulls = 0;
     cows = 0;
 
+    int tempSecretNumber = secretNumber, secretNumber2 = secretNumber;
+
     for (int i = 0; i < 4; ++i) {
-        int secretDigit = secretNumber % 10;
-        secretNumber = secretNumber / 10;
+        int secretDigit = tempSecretNumber % 10;
+        tempSecretNumber = tempSecretNumber / 10;
         int guessDigit = guess % 10;
         guess = guess / 10;
 
         if (secretDigit == guessDigit) {
             ++bulls;
-        } else if ((secretNumber / 1000) == (guess % 10) || ((secretNumber / 100) % 10) == ((guess / 10) % 10) || ((secretNumber / 10) % 10) == (guess % 10)) {
-            ++cows;
+        }
+        else {
+            secretNumber2 = secretNumber;
+            int tempSecretDigit = secretNumber2 % 10;
+            while (tempSecretDigit != 0)
+            {
+                if (tempSecretDigit == guessDigit)
+                {
+                    ++cows;
+                    break;
+                }
+                else {
+                    secretNumber2 /= 10;
+                    tempSecretDigit = secretNumber2 % 10;
+                }
+            }
         }
     }
 }
